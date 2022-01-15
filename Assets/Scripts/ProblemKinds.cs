@@ -21,9 +21,11 @@ public class ProblemKinds : MonoBehaviour
     private bool isCommonsense = false;
 
     int RandomProblem;
+
+    public static int FailStac = 0;
     void Start()
     {
-        RandomProblem = Random.Range(1, 11);
+        RandomProblem = 2;
     }
 
     void Update()
@@ -135,6 +137,7 @@ public class ProblemKinds : MonoBehaviour
                 isAnswer2 = false;
                 isAnswer3 = false;
                 isAnswer4 = false;
+                FailStac++;
                 Question();
             }
         }

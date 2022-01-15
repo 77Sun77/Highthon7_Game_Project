@@ -5,7 +5,7 @@ using UnityEngine;
 public class FourPoint : MonoBehaviour
 {
     private int truePoint = 0;
-    public static bool isPoint = true;
+    public static bool isPoint = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(isPoint == true)
@@ -20,6 +20,7 @@ public class FourPoint : MonoBehaviour
             }
             else
             {
+                ProblemKinds.FailStac++;
                 Debug.Log("½ÇÆÐ");
                 truePoint = 0;
             }
