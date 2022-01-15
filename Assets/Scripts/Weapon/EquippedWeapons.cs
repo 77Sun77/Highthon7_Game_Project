@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EquippedWeapons : MonoBehaviour
 {
-    public static string weaponsName = "빗자루와 쓰레받이";
+    public static string weaponsName = "대걸레";
 
     public GameObject baseballBat;
     public GameObject book;
@@ -16,9 +16,13 @@ public class EquippedWeapons : MonoBehaviour
 
     [Header("Skill")]
     public GameObject broomstickSkill;
+    public GameObject mopSkill;
+
+
+    CharacterController c1;
     void Start()
     {
-        
+        c1 = GameObject.Find("GameManager").GetComponent<CharacterController>();
     }
 
     
@@ -77,7 +81,6 @@ public class EquippedWeapons : MonoBehaviour
     {
         if (weaponsName == "책")
         {
-            CharacterController c1 = GameObject.Find("GameManager").GetComponent<CharacterController>();
             c1.player2Hp += 4;
             print("회복");
             if (c1.player2Hp > c1.maxHp) c1.player2Hp = c1.maxHp;
@@ -90,9 +93,26 @@ public class EquippedWeapons : MonoBehaviour
 
         if (weaponsName == "분필")
         {
+            StartCoroutine(chalkSkill());
+        }
 
+        if (weaponsName == "대걸레")
+        {
+            Instantiate(mopSkill, c1.player2.transform);
         }
     }
 
-    IEnumerator 
+    IEnumerator chalkSkill()
+    {
+        yield return new WaitForSeconds(0.2f);
+        for (int i=0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(0.08f);
+            GameObject chalkGO = Instantiate(c1.chalk);
+            chalkGO.transform.position = c1.player2.transform.position;
+            Chalk chalkGo = chalkGO.GetComponent<Chalk>();
+            chalkGo.vEnd = c1.targetMonster.transform.position;
+            
+        }
+    }
 }
