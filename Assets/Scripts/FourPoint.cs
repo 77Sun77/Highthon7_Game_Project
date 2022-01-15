@@ -5,7 +5,7 @@ using UnityEngine;
 public class FourPoint : MonoBehaviour
 {
     public static int truePoint = 0;
-    public static bool isPoint = true;
+    public static bool isPoint = false;
 
     public SpriteRenderer bt1;
     public SpriteRenderer bt2;
