@@ -94,5 +94,4 @@ public class EquippedWeapons : MonoBehaviour
         }
     }
 
-    IEnumerator 
 }
