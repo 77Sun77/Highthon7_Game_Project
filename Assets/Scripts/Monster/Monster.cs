@@ -11,6 +11,8 @@ public class Monster : MonoBehaviour
     public GameObject hint;
 
     bool weapon;
+
+    GameObject item;
     void Start()
     {
         speed = 1;
@@ -24,6 +26,7 @@ public class Monster : MonoBehaviour
 
     protected void death()
     {
+        ItemDrop item = GameObject.Find("ItemDrop").GetComponent<ItemDrop>();
         if (hp <= 0)
         {
             int random = Random.Range(0, 100);
@@ -35,21 +38,22 @@ public class Monster : MonoBehaviour
             if(random >= 15 && random < 20)
             {
                 random = Random.Range(0, 100);
-                if (random >= 0 && random < 30) print("우유 드랍");
-                else if (random >= 30 && random < 50) print("초코 드랍");
-                else if (random >= 50 && random < 60) print("아이스크림 드랍");
+                if (random >= 0 && random < 30) this.item = item.spawnMilk();
+                else if (random >= 30 && random < 50) this.item = item.spawnChoco();
+                else if (random >= 50 && random < 60) this.item = item.spawnIceCream();
                 else if (random >= 60 && random < 75) weapon = true;
-                else if (random >= 75 && random < 90) print("세이브포인트 드랍");
-                else if (random >= 90 && random < 100) print("젤리 드랍");
+                else if (random >= 75 && random < 90) this.item = item.spawnSavePoint();
+                else if (random >= 90 && random < 100) this.item = item.spawnJelly();
                 if (weapon)
                 {
                     random = Random.Range(0, 100);
-                    if (random >= 0 && random < 15) print("대걸레 드랍");
-                    else if (random >= 15 && random < 50) print("책 드랍");
-                    else if (random >= 50 && random < 70) print("분필 드랍");
-                    else if (random >= 70 && random < 90) print("나무배트 드랍");
-                    else if (random >= 90 && random < 100) print("빗자루와 쓰레받이 드랍");
+                    if (random >= 0 && random < 15) this.item = item.spawnMop();
+                    else if (random >= 15 && random < 50) this.item = item.spawnBook();
+                    else if (random >= 50 && random < 70) this.item = item.spawnChalk();
+                    else if (random >= 70 && random < 90) this.item = item.spawnBase();
+                    else if (random >= 90 && random < 100) this.item = item.spawnBroomstick();
                 }
+                this.item.transform.position = transform.position;
             }
 
 
