@@ -61,7 +61,7 @@ public class ProblemKinds : MonoBehaviour
                     isAnswer3 = true;
                     break;
                 case 2:
-                    Chilpantxt.text = "겨울잠을 자는 동물이 아는 것은?";
+                    Chilpantxt.text = "겨울잠을 자는 동물이 아닌 것은?";
                     Problem1.text = "토끼";
                     Problem2.text = "곰";
                     Problem3.text = "뱀";

@@ -11,9 +11,28 @@ public class LoadingScene : MonoBehaviour
 
     private float time;
 
+    public Text txt;
+    int Randomtxt;
     void Start()
     {
         StartCoroutine(LoadAsynSceneCoroutine());
+        Randomtxt = Random.Range(1, 4);
+    }
+
+     void Update()
+    {
+        switch(Randomtxt)
+        {
+            case 1:
+                txt.text = "Tip. 문제를 빠르게 풀지 않는다면 몬스터의 수가 증가합니다! ";
+                break;
+            case 2:
+                txt.text = "Tip. 문제를 풀어 친구에게 도움을 주세요!";
+                break;
+            case 3:
+                txt.text = "Tip. 하이톤 사랑해요";
+                break;
+        }
     }
 
     IEnumerator LoadAsynSceneCoroutine()
