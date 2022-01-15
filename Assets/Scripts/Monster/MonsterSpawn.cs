@@ -22,7 +22,7 @@ public class MonsterSpawn : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(10f);
             int random = Random.Range(0, 3);
             switch (random)
             {

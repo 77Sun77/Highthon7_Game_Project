@@ -25,6 +25,9 @@ public class CharacterController : MonoBehaviour
     public static int weaponDamage; // 데미지
     public static float attackRange; // 범위
 
+    public static GameObject animPrefab;
+    Vector3 vStart, vEnd;
+    float angle;
     void Start()
     {
         hitTag = "";
@@ -34,6 +37,7 @@ public class CharacterController : MonoBehaviour
         maxHp = 10;
         player2Hp = 10;
 
+        animTime = 0.2f;
         attackRange = 1.5f;
         attackDelay = 1;
     }
@@ -100,9 +104,18 @@ public class CharacterController : MonoBehaviour
     IEnumerator attack()
     {
         attacking = true;
+        vStart = player2.transform.position;
+        vEnd = targetMonster.transform.position;
+        Vector3 v = vEnd - vStart;
+        angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+        angle -= 90;
+        GameObject animGO = Instantiate(animPrefab, player2.transform);
+        animGO.transform.Rotate(new Vector3(0, 0, angle));
+        animGO.transform.Translate(Vector2.up * 1.5f);
+
         yield return new WaitForSeconds(animTime); // 애니메이션 시간
         Monster monster = (Monster)targetMonster.GetComponent(typeof(Monster));
-        if(EquippedWeapons.weaponsName == "분필")
+        if (EquippedWeapons.weaponsName == "분필")
         {
             GameObject chalkGO = Instantiate(chalk);
             chalkGO.transform.position = player2.transform.position;
