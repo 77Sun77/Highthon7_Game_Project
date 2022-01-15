@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EquippedWeapons : MonoBehaviour
 {
-    public static string weaponsName = "대걸레";
+    public static string weaponsName = "빗자루와 쓰레받이";
 
     public GameObject baseballBat;
     public GameObject book;
@@ -20,9 +20,14 @@ public class EquippedWeapons : MonoBehaviour
 
 
     CharacterController c1;
+
+    [Header("Animator")]
+    public RuntimeAnimatorController[] anim;
+    Animator playerAnim;
     void Start()
     {
         c1 = GameObject.Find("GameManager").GetComponent<CharacterController>();
+        playerAnim = c1.player2.GetComponent<Animator>();
     }
 
     
@@ -34,6 +39,7 @@ public class EquippedWeapons : MonoBehaviour
             CharacterController.attackRange = 2f;
             CharacterController.attackDelay = 1f;
             CharacterController.animPrefab = punch;
+            playerAnim.runtimeAnimatorController = anim[0];
         }
 
         if (weaponsName == "대걸레")
@@ -42,6 +48,7 @@ public class EquippedWeapons : MonoBehaviour
             CharacterController.attackRange = 4;
             CharacterController.attackDelay = 1.7f;
             CharacterController.animPrefab = baseballBat;
+            playerAnim.runtimeAnimatorController = anim[1];
         }
 
         if (weaponsName == "책")
@@ -50,6 +57,7 @@ public class EquippedWeapons : MonoBehaviour
             CharacterController.attackRange = 2f;
             CharacterController.attackDelay = 1f;
             CharacterController.animPrefab = book;
+            playerAnim.runtimeAnimatorController = anim[2];
         }
         
         if (weaponsName == "분필")
@@ -57,6 +65,7 @@ public class EquippedWeapons : MonoBehaviour
             CharacterController.weaponDamage = 1;
             CharacterController.attackRange = 5;
             CharacterController.attackDelay = 0.5f;
+            playerAnim.runtimeAnimatorController = anim[3];
         }
 
         if (weaponsName == "나무배트")
@@ -65,6 +74,7 @@ public class EquippedWeapons : MonoBehaviour
             CharacterController.attackRange = 3f;
             CharacterController.attackDelay = 1.7f;
             CharacterController.animPrefab = baseballBat;
+            playerAnim.runtimeAnimatorController = anim[4];
         }
         
         if (weaponsName == "빗자루와 쓰레받이")
@@ -74,6 +84,7 @@ public class EquippedWeapons : MonoBehaviour
             CharacterController.attackDelay = 0.5f;
             CharacterController.animPrefab = broomstickAttack;
             CharacterController.shieldPrefab = broomstickShield;
+            playerAnim.runtimeAnimatorController = anim[5];
         }
     }
 
