@@ -8,6 +8,10 @@ TagManager:
   - Answer2
   - Answer3
   - Answer4
+  - up
+  - down
+  - left
+  - right
   layers:
   - Default
   - TransparentFX

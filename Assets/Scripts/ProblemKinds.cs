@@ -98,14 +98,6 @@ public class ProblemKinds : MonoBehaviour
                    Problem4.text = "21";
                    isAnswer1 = true;
                 break;
-                case 7:
-                    break;
-                case 8:
-                    break;
-                case 9:
-                    break;
-                case 10:
-                    break;
             }
     }
 
