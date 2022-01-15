@@ -67,6 +67,7 @@ public class OneCadre : Monster
             timer = 0;
         }
 
+        if (hp <= 0) MonsterSpawn.isSpawn = true;
         death();
     }
 
