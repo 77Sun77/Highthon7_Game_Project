@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
     [Header("Attack")]
     RaycastHit2D hit;
     string hitTag;
-    GameObject targetMonster;
+    public GameObject targetMonster;
     bool isAttack; // 공격 할 수 있는가
     bool attacking; // 현재 공격 중 인가
     public int maxHp;
