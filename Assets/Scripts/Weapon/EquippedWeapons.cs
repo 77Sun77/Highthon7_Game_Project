@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EquippedWeapons : MonoBehaviour
 {
-    public static string weaponsName = "나무배트";
+    public static string weaponsName = "분필";
 
     public GameObject baseballBat;
     void Start()

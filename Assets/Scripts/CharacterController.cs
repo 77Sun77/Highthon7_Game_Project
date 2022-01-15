@@ -104,15 +104,18 @@ public class CharacterController : MonoBehaviour
     IEnumerator attack()
     {
         attacking = true;
-        vStart = player2.transform.position;
-        vEnd = targetMonster.transform.position;
-        Vector3 v = vEnd - vStart;
-        angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
-        angle -= 90;
-        GameObject animGO = Instantiate(animPrefab, player2.transform);
-        animGO.transform.Rotate(new Vector3(0, 0, angle));
-        animGO.transform.Translate(Vector2.up * 1.5f);
+        if (EquippedWeapons.weaponsName != "분필")
+        {
+            vStart = player2.transform.position;
+            vEnd = targetMonster.transform.position;
+            Vector3 v = vEnd - vStart;
+            angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+            angle -= 90;
+            GameObject animGO = Instantiate(animPrefab, player2.transform);
+            animGO.transform.Rotate(new Vector3(0, 0, angle));
+            animGO.transform.Translate(Vector2.up * 1.5f);
 
+        }
         yield return new WaitForSeconds(animTime); // 애니메이션 시간
         Monster monster = (Monster)targetMonster.GetComponent(typeof(Monster));
         if (EquippedWeapons.weaponsName == "분필")
@@ -124,7 +127,11 @@ public class CharacterController : MonoBehaviour
         }
         else monster.hp -= weaponDamage;
         print("플레이어가 공격");
-        if (monster.hp <= 0) isAttack = false;
+        if (monster.hp <= 0)
+        {
+            isAttack = false;
+            targetMonster = null;
+        }
         yield return new WaitForSeconds(attackDelay); // 공속
         attacking = false;
     }
