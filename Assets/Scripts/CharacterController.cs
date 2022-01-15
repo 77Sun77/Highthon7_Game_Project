@@ -35,6 +35,7 @@ public class CharacterController : MonoBehaviour
 
     EquippedWeapons e1;
 
+    SpriteRenderer player1Sprite;
     SpriteRenderer player2Sprite;
     int rotate;
     void Start()
@@ -53,6 +54,7 @@ public class CharacterController : MonoBehaviour
         e1 = GetComponent<EquippedWeapons>();
 
         player2Sprite = player2.GetComponent<SpriteRenderer>();
+        player1Sprite = player1.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -105,7 +107,13 @@ public class CharacterController : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float w = Input.GetAxis("Vertical");
-        rigid1.velocity = new Vector2(h, w) * maxSpeed;
+        rigid1.velocity = new Vector2(h, w) * (maxSpeed+1);
+
+        if (Mathf.Abs(rigid1.velocity.x) != 0) player1.GetComponent<Animator>().SetBool("isWalk", true);
+        else player1.GetComponent<Animator>().SetBool("isWalk", false);
+
+        if (h > 0) player1Sprite.flipX = false;
+        if (h < 0) player1Sprite.flipX = true;
     }
 
     void player2Move()

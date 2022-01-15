@@ -9,6 +9,7 @@ public class BroomstickSkill : MonoBehaviour
     BoxCollider2D col;
     void Start()
     {
+        transform.position = new Vector2(Camera.main.transform.position.x + 0.23f, transform.position.y);
         StartCoroutine(attack());
         Destroy(gameObject, 1.1f);
         col = GetComponent<BoxCollider2D>();
