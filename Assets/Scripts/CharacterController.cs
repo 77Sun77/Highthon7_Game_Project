@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class CharacterController : MonoBehaviour
     bool attacking; // 현재 공격 중 인가
     public int maxHp;
     public int player2Hp = 10;
+    public Text HpBar;
+    string Player2HpSee;
     public GameObject chalk; // 분필
     public static int skillPoint = 100; // 스킬포인트
     public static float animTime; // 애니메이션 시전 시간
@@ -49,6 +52,8 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
+        Player2HpSee = player2Hp.ToString();
+        HpBar.text = "HP:" + Player2HpSee;
         if (Input.GetMouseButtonDown(0))
         {
             mousePos = Input.mousePosition;
