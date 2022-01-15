@@ -27,6 +27,8 @@ public class RangedMonster : Monster
             }
         }
         else speed = 0.5f;
+
+        death();
     }
 
     IEnumerator attack()

@@ -26,6 +26,8 @@ public class BatMonster : Monster
             }
         }
         else speed = 1;
+
+        death();
     }
 
     IEnumerator attack()

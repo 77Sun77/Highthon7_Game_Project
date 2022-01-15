@@ -25,6 +25,8 @@ public class BasicMonster : Monster
             }
         }
         else speed = 1;
+
+        death();
     }
 
     IEnumerator attack()

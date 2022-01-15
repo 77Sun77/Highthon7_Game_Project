@@ -30,6 +30,7 @@ public class CharacterController : MonoBehaviour
 
         player2Hp = 10;
 
+        weaponDamage = 5;
         attackRange = 2;
     }
 
@@ -98,6 +99,7 @@ public class CharacterController : MonoBehaviour
         Monster monster = (Monster)targetMonster.GetComponent(typeof(Monster));
         monster.hp -= weaponDamage;
         print("플레이어가 공격");
+        if (monster.hp <= 0) isAttack = false;
         yield return new WaitForSeconds(attackDelay); // 공속
         attacking = false;
     }

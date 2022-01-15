@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
+  hint: {fileID: 8358542728803171498, guid: 3f0d9c5d64c38b046aa12635f4fa2fb2, type: 3}
   bullet: {fileID: 8803399170392218828, guid: 9101b54a62935694a968b5fdcd98d25d, type: 3}
 --- !u!61 &3917383352009424574
 BoxCollider2D:
