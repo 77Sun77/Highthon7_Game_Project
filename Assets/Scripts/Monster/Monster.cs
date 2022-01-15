@@ -54,7 +54,7 @@ public class Monster : MonoBehaviour
 
 
 
-            CharacterController.skillPoint += 5;
+            CharacterController.skillPoint += 10;
             Destroy(gameObject);
         }
     }
