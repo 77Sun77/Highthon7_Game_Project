@@ -45,8 +45,7 @@ public class Monster : MonoBehaviour
                 if (random >= 0 && random < 30) this.item = item.spawnMilk();
                 else if (random >= 30 && random < 50) this.item = item.spawnChoco();
                 else if (random >= 50 && random < 60) this.item = item.spawnIceCream();
-                else if (random >= 60 && random < 75) weapon = true;
-                else if (random >= 75 && random < 90) this.item = item.spawnSavePoint();
+                else if (random >= 60 && random < 90) weapon = true;
                 else if (random >= 90 && random < 100) this.item = item.spawnJelly();
                 if (weapon)
                 {

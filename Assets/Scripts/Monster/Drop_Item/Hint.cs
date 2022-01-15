@@ -8,7 +8,8 @@ public class Hint : MonoBehaviour
     {
         if(collision.tag == "Player2")
         {
-            Items.isHint = true;
+            GameManager game = GameObject.Find("GameManager").GetComponent<GameManager>();
+            game.hintTrue();
             Destroy(gameObject);
         }
     }

@@ -45,7 +45,7 @@ public class RangedMonster : Monster
         CharacterController player = GameObject.Find("GameManager").GetComponent<CharacterController>();
         GameObject bulletGO = Instantiate(bullet);
         bulletGO.transform.position = transform.position;
-        yield return new WaitForSeconds(3f); // 공속
+        yield return new WaitForSeconds(5f); // 공속
         attacking = false;
     }
 }
