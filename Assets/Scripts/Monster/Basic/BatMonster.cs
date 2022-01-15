@@ -11,6 +11,9 @@ public class BatMonster : Monster
         attacking = false;
         speed = 1;
         player2 = GameObject.Find("Player2");
+
+
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,13 @@ public class BatMonster : Monster
             }
         }
         else speed = 1;
+
+
+        if (player2.transform.position.x < transform.position.x)
+        {
+            sprite.flipX = true;
+        }
+        else sprite.flipX = false;
 
         death();
     }

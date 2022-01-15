@@ -22,15 +22,19 @@ public class Food : MonoBehaviour
     {
         if(collision.tag == "Player2")
         {
-            CharacterController player2 = GameObject.Find("Player2").GetComponent<CharacterController>();
+            CharacterController player2 = GameObject.Find("GameManager").GetComponent<CharacterController>();
             if (name != "Á©¸®")
             {
                 player2.player2Hp += heal;
                 if (player2.player2Hp > player2.maxHp) player2.player2Hp = player2.maxHp;
                 Destroy(gameObject);
             }
-            player2.maxHp += 5;
-            Destroy(gameObject);
+            else
+            {
+                player2.maxHp += 5;
+                Destroy(gameObject);
+
+            }
         }
     }
 }

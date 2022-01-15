@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: aa484f1a58b2a8a43ab650a79b095951
-TextureImporter:
-  internalIDToNameTable: []
-=======
-guid: cc36db7c7687eba47bf9c63c2aac4610
+guid: 892cc749410b0094bb882ce24d499301
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 752067188302854474
-    second: 7d915633d51a67af_0
->>>>>>> 59517f2372843446ab46ec090b0fcee361792ee6
+      213: -8018145834681703796
+    second: bully_Cadre-Sheet_0
+  - first:
+      213: -2754423072490485116
+    second: bully_Cadre-Sheet_1
+  - first:
+      213: -3816526782934655779
+    second: bully_Cadre-Sheet_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,11 +50,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> 59517f2372843446ab46ec090b0fcee361792ee6
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,18 +122,15 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<< HEAD
-    sprites: []
-=======
     sprites:
     - serializedVersion: 2
-      name: 7d915633d51a67af_0
+      name: bully_Cadre-Sheet_0
       rect:
         serializedVersion: 2
-        x: 287
-        y: 235
-        width: 101
-        height: 113
+        x: 0
+        y: 17
+        width: 16
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,13 +138,54 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a49b4068f11ef6a00800000000000000
-      internalID: 752067188302854474
+      spriteID: c82e48668d2d9b090800000000000000
+      internalID: -8018145834681703796
       vertices: []
       indices: 
       edges: []
       weights: []
->>>>>>> 59517f2372843446ab46ec090b0fcee361792ee6
+    - serializedVersion: 2
+      name: bully_Cadre-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 17
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a80132fc256c9d0800000000000000
+      internalID: -2754423072490485116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully_Cadre-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc5a6b9c19f80bc0800000000000000
+      internalID: -3816526782934655779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
