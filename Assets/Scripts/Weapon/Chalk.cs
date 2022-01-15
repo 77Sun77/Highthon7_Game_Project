@@ -6,6 +6,9 @@ public class Chalk : MonoBehaviour
 {
     float angle;
     public Vector3 vStart, vEnd;
+    Animator anim;
+
+    public GameObject attack;
     void Start()
     {
         Destroy(gameObject, 5f);
@@ -15,6 +18,10 @@ public class Chalk : MonoBehaviour
         angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
 
         transform.Rotate(new Vector3(0, 0, angle));
+
+        anim = GetComponent<Animator>();
+        int random = Random.Range(0, 3);
+        anim.SetInteger("int", random);
     }
 
     void Update()
@@ -28,7 +35,10 @@ public class Chalk : MonoBehaviour
         {
             Monster monster = (Monster) collision.GetComponent(typeof(Monster));
             monster.hp -= 1;
-            print("АјАн");
+            GameObject attackGO = Instantiate(attack);
+            attackGO.transform.position = transform.position;
+            attackGO.transform.Rotate(new Vector3(0, 0, angle - 90));
+            Destroy(attackGO, 5f);
             Destroy(gameObject);
         }
     }
