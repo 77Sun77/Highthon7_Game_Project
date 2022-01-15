@@ -8,16 +8,6 @@ public class StartScene : MonoBehaviour
 
     public void StartBt()
     {
-        SceneManager.LoadScene("");
-    }
-
-    public void ExplanationBt()
-    {
-        SceneManager.LoadScene("");
-    }
-
-    public void CreditBt()
-    {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Load_Scene");
     }
 }

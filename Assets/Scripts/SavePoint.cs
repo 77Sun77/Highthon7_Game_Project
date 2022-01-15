@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class SavePoint : MonoBehaviour
 {
+    Transform tr;
+    Vector3 vec;
     
     void Start()
     {
-
-
-
-
         Destroy(gameObject, 10f);
     }
 
@@ -25,7 +23,7 @@ public class SavePoint : MonoBehaviour
         if(collision.tag == "Player2")
         {
             // 세이브 코드
-
+            vec = tr.transform.localPosition;
             Destroy(gameObject);
         }
     }
