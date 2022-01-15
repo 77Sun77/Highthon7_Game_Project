@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoadingScene : MonoBehaviour
 {
     public Slider slider;
-    public static string SceneName = "Game_Scene";
+    public static string SceneName = "Play_Scene";
 
     private float time;
 
