@@ -19,15 +19,18 @@ public class CharacterController : MonoBehaviour
     public int maxHp;
     public int player2Hp = 10;
     public GameObject chalk; // 분필
-    public static int skillPoint; // 스킬포인트
+    public static int skillPoint = 100; // 스킬포인트
     public static float animTime; // 애니메이션 시전 시간
     public static float attackDelay; // 공속
     public static int weaponDamage; // 데미지
     public static float attackRange; // 범위
 
     public static GameObject animPrefab;
+    public static GameObject shieldPrefab;
     Vector3 vStart, vEnd;
     float angle;
+
+    EquippedWeapons e1;
     void Start()
     {
         hitTag = "";
@@ -40,6 +43,8 @@ public class CharacterController : MonoBehaviour
         animTime = 0.2f;
         attackRange = 1.5f;
         attackDelay = 1;
+
+        e1 = GetComponent<EquippedWeapons>();
     }
 
     void Update()
@@ -67,6 +72,14 @@ public class CharacterController : MonoBehaviour
                 isAttack = true;
             }
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            if(skillPoint >= 100)
+            {
+                skillPoint -= 100;
+                e1.skill();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -85,6 +98,15 @@ public class CharacterController : MonoBehaviour
     void player2Move()
     {
         player2.transform.position = Vector3.Lerp(player2.transform.position, mousePos, (maxSpeed - 2) * Time.deltaTime);
+
+        float wheelInput = Input.GetAxis("Mouse ScrollWheel");
+        
+        if (wheelInput > 0 && EquippedWeapons.weaponsName == "빗자루와 쓰레받이")
+        {
+            GameObject shieldGO = Instantiate(shieldPrefab, player2.transform);
+            Shield shield = shieldGO.GetComponent<Shield>();
+            shield.hp = player2Hp;
+        }
 
         if (isAttack)
         {
@@ -114,7 +136,7 @@ public class CharacterController : MonoBehaviour
             GameObject animGO = Instantiate(animPrefab, player2.transform);
             animGO.transform.Rotate(new Vector3(0, 0, angle));
             animGO.transform.Translate(Vector2.up * 1.5f);
-
+            Destroy(animGO, 2f);
         }
         yield return new WaitForSeconds(animTime); // 애니메이션 시간
         Monster monster = (Monster)targetMonster.GetComponent(typeof(Monster));
@@ -125,7 +147,11 @@ public class CharacterController : MonoBehaviour
             Chalk chalkGo = chalkGO.GetComponent<Chalk>();
             chalkGo.vEnd = targetMonster.transform.position;
         }
-        else monster.hp -= weaponDamage;
+        else
+        {
+            monster.hp -= weaponDamage;
+            skillPoint += 5;
+        }
         print("플레이어가 공격");
         if (monster.hp <= 0)
         {
