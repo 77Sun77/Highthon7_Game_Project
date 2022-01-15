@@ -102,6 +102,7 @@ public class EquippedWeapons : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     IEnumerator chalkSkill()
     {
         yield return new WaitForSeconds(0.2f);
@@ -115,4 +116,6 @@ public class EquippedWeapons : MonoBehaviour
             
         }
     }
+=======
+>>>>>>> e9d6c4eb1d04da49f7bab7e18e7c3168e6effb27
 }
