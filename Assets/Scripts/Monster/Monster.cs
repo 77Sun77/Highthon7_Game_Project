@@ -13,6 +13,10 @@ public class Monster : MonoBehaviour
     bool weapon;
 
     GameObject item;
+
+    protected Vector3 vStart, vEnd;
+    protected float angle;
+    protected SpriteRenderer sprite;
     void Start()
     {
         speed = 1;
