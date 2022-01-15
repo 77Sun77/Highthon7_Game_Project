@@ -3,20 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
-  - Monster
-  - Player2
-=======
-  - Answer1
-  - Answer2
-  - Answer3
-  - Answer4
-  - up
-  - down
-  - left
-  - right
->>>>>>> a29c4fb134a6146cc70cbcd9f6145e2488204a2a
+  tags: []
   layers:
   - Default
   - TransparentFX
