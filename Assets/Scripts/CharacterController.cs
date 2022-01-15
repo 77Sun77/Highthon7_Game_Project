@@ -31,6 +31,9 @@ public class CharacterController : MonoBehaviour
     float angle;
 
     EquippedWeapons e1;
+
+    SpriteRenderer player2Sprite;
+    int rotate;
     void Start()
     {
         hitTag = "";
@@ -45,6 +48,8 @@ public class CharacterController : MonoBehaviour
         attackDelay = 1;
 
         e1 = GetComponent<EquippedWeapons>();
+
+        player2Sprite = player2.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -71,6 +76,9 @@ public class CharacterController : MonoBehaviour
                 targetMonster = hit.collider.gameObject;
                 isAttack = true;
             }
+
+            if(mousePos.x > player2.transform.position.x) player2Sprite.flipX = false;
+            else player2Sprite.flipX = true;
         }
         if (Input.GetMouseButtonDown(1))
         {
