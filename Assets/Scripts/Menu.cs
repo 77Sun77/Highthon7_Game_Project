@@ -21,6 +21,7 @@ public class Menu : MonoBehaviour
 
     bool istrue;
 
+    public GameObject Shutter;
     private void Start()
     {
         MathQ();
@@ -61,14 +62,30 @@ public class Menu : MonoBehaviour
     {
         if(collision.tag == "MathAnswer")
         {
-            if (istrue == true) Debug.Log("성공");
-            else Debug.Log("실패");
+            if (istrue == true)
+            {
+                Debug.Log("성공");
+                Shutter.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("실패");
+                ProblemKinds.FailStac++;
+            }
         }
 
         else if (collision.tag == "MathAnswer2")
         {
-            if (istrue == false) Debug.Log("성공");
-            else Debug.Log("실패");
+            if (istrue == false)
+            {
+                Debug.Log("성공");
+                Shutter.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("실패");
+                ProblemKinds.FailStac++;
+            }
         }
     }
 }

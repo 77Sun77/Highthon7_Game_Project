@@ -12,6 +12,14 @@ public class ProblemKinds : MonoBehaviour
     public TextMesh Problem3;
     public TextMesh Problem4;
 
+    [Header("Locker")]
+    public SpriteRenderer Locker1;
+    public SpriteRenderer Locker2;
+    public SpriteRenderer Locker3;
+    public SpriteRenderer Locker4;
+    public Sprite changeSprite;
+
+
     private bool isAnswer1 = false;
     private bool isAnswer2 = false;
     private bool isAnswer3 = false;
@@ -22,18 +30,17 @@ public class ProblemKinds : MonoBehaviour
 
     int RandomProblem;
 
+    bool istrue = true;
+
     public static int FailStac = 0;
     void Start()
     {
-        RandomProblem = 2;
+        isNonsense = true;
+        Question();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Question();
-        }
     }
 
     void Question()
@@ -105,30 +112,38 @@ public class ProblemKinds : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && istrue == true)
         {
             if (collision.tag == "Answer1" && isAnswer1 == true)
             {
+                Locker1.sprite = changeSprite;
                 Debug.Log("정답");
-                isAnswer1 = false;
+                isCommonsense = true;
+                istrue = false;
             }
 
             else if (collision.tag == "Answer2" && isAnswer2 == true)
             {
+                Locker2.sprite = changeSprite;
                 Debug.Log("정답");
-                isAnswer2 = false;
+                isCommonsense = true;
+                istrue = false;
             }
 
             else if (collision.tag == "Answer3" && isAnswer3 == true)
             {
+                Locker3.sprite = changeSprite;
                 Debug.Log("정답");
-                isAnswer3 = false;
+                isCommonsense = true;
+                istrue = false;
             }
 
             else if (collision.tag == "Answer4" && isAnswer4 == true)
             {
+                Locker4.sprite = changeSprite;
                 Debug.Log("정답");
-                isAnswer4 = false;
+                isCommonsense = true;
+                istrue = false;
             }
             else
             {
@@ -140,6 +155,18 @@ public class ProblemKinds : MonoBehaviour
                 FailStac++;
                 Question();
             }
+
+            StartCoroutine(StopCount());
         }
+    }
+
+    IEnumerator StopCount()
+    {
+        yield return new WaitForSeconds(1f);
+        isAnswer1 = false;
+        isAnswer2 = false;
+        isAnswer3 = false;
+        isAnswer4 = false;
+        istrue = true;
     }
 }
