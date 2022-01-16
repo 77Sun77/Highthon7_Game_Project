@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
@@ -38,6 +39,8 @@ public class CharacterController : MonoBehaviour
     SpriteRenderer player1Sprite;
     SpriteRenderer player2Sprite;
     int rotate;
+
+    public Image over;
     void Start()
     {
         hitTag = "";
@@ -95,8 +98,17 @@ public class CharacterController : MonoBehaviour
                 e1.skill();
             }
         }
+
+        if(player2Hp <= 0)
+        {
+            over.gameObject.SetActive(true);
+        }
     }
 
+    public void ReGame()
+    {
+        SceneManager.LoadScene(2);
+    }
     private void FixedUpdate()
     {
         player1Move();

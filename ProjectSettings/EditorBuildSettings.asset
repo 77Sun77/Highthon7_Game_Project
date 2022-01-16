@@ -14,9 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/New Scene.unity
     guid: de2f5d0097333ef4f96b7080e14159a6
-  - enabled: 1
-    path: "Assets/Scenes/Play_Scene - \uBCF5\uC0AC\uBCF8.unity"
-    guid: 00e8d4ec7b614384ba9f2840cf9bde37
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Game_Scene.unity
     guid: 31b30a366ad64db40a84a68609af880c
