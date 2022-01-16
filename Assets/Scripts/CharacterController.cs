@@ -19,11 +19,11 @@ public class CharacterController : MonoBehaviour
     bool isAttack; // 공격 할 수 있는가
     bool attacking; // 현재 공격 중 인가
     public int maxHp;
-    public int player2Hp = 10;
+    public int player2Hp = 30;
     public Text HpBar;
     string Player2HpSee;
     public GameObject chalk; // 분필
-    public static int skillPoint = 100; // 스킬포인트
+    public static int skillPoint; // 스킬포인트
     public static float animTime; // 애니메이션 시전 시간
     public static float attackDelay; // 공속
     public static int weaponDamage; // 데미지
@@ -41,18 +41,20 @@ public class CharacterController : MonoBehaviour
     int rotate;
 
     public Image over;
+    public Text text;
     void Start()
     {
         hitTag = "";
         isAttack = false;
         attacking = false;
 
-        maxHp = 30;
-        player2Hp = 30;
+        maxHp = 50;
+        player2Hp = 50;
 
         animTime = 0.2f;
         attackRange = 1.5f;
         attackDelay = 1;
+        skillPoint = 0;
 
         e1 = GetComponent<EquippedWeapons>();
 
@@ -103,6 +105,8 @@ public class CharacterController : MonoBehaviour
         {
             over.gameObject.SetActive(true);
         }
+
+        text.text = "sp: " + skillPoint;
     }
 
     public void ReGame()

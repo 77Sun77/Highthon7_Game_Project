@@ -8,7 +8,7 @@ public class EndLine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" || collision.tag == "Player2")
+        if ((collision.tag == "Player" || collision.tag == "Player2") && ThreeCadre.isEnd)
         {
             SceneManager.LoadScene("Ending_Scene");
         }

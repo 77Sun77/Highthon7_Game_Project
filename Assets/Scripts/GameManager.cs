@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
         boss2 = true;
         boss3 = true;
         Shutter.stack = 0;
+        ProblemKinds.stack = 0;
+        Bunpil.two = false;
     }
 
     // Update is called once per frame
@@ -40,7 +42,11 @@ public class GameManager : MonoBehaviour
             MonsterSpawn.isSpawn = false;
         }
 
-        if(ProblemKinds.stack >= 2 && boss3 && Input.GetKeyDown(KeyCode.F))
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (boss3 && Input.GetKeyDown(KeyCode.F))
         {
             GameObject Go = Instantiate(boss[2]);
             Go.transform.position = space[2].position;
