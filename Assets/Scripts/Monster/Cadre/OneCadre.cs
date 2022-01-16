@@ -68,6 +68,7 @@ public class OneCadre : Monster
         }
 
         if (hp <= 0) MonsterSpawn.isSpawn = true;
+
         death();
     }
 
@@ -101,7 +102,7 @@ public class OneCadre : Monster
         }
         print("공격");
         stack++;
-        yield return new WaitForSeconds(2f); // 공속
+        yield return new WaitForSeconds(5f); // 공속
         attacking = false;
     }
 }

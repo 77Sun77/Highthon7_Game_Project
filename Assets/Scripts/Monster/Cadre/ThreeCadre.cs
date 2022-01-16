@@ -8,6 +8,8 @@ public class ThreeCadre : Monster
 
     int damage;
     int stack;
+
+    public static bool isEnd;
     void Start()
     {
         hp = 60;
@@ -40,6 +42,8 @@ public class ThreeCadre : Monster
         }
         else sprite.flipX = false;
 
+        if (hp <= 0) isEnd = true;
+
         death();
     }
 
@@ -53,7 +57,7 @@ public class ThreeCadre : Monster
         player.player2Hp -= damage;
         print("공격");
         stack++;
-        yield return new WaitForSeconds(1f); // 공속
+        yield return new WaitForSeconds(5f); // 공속
         attacking = false;
     }
 }

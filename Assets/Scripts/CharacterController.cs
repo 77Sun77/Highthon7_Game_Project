@@ -44,8 +44,8 @@ public class CharacterController : MonoBehaviour
         isAttack = false;
         attacking = false;
 
-        maxHp = 10;
-        player2Hp = 10;
+        maxHp = 30;
+        player2Hp = 30;
 
         animTime = 0.2f;
         attackRange = 1.5f;

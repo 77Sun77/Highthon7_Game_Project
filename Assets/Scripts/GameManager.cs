@@ -26,10 +26,26 @@ public class GameManager : MonoBehaviour
     {
         if (Shutter.stack == 1 && boss1)
         {
-            GameObject GO = Instantiate(boss[0]);
-            GO.transform.position = space[0].position;
-            MonsterSpawn.isSpawn = false;
+            GameObject Go = Instantiate(boss[0]);
+            Go.transform.position = space[0].position;
             boss1 = false;
+            MonsterSpawn.isSpawn = false;
+        }
+
+        if(Bunpil.two && boss2)
+        {
+            GameObject Go = Instantiate(boss[1]);
+            Go.transform.position = space[1].position;
+            boss2 = false;
+            MonsterSpawn.isSpawn = false;
+        }
+
+        if(ProblemKinds.stack >= 2 && boss3 && Input.GetKeyDown(KeyCode.F))
+        {
+            GameObject Go = Instantiate(boss[2]);
+            Go.transform.position = space[2].position;
+            boss3 = false;
+            MonsterSpawn.isSpawn = false;
         }
     }
 }

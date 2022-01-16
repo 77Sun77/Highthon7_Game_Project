@@ -54,6 +54,8 @@ public class TwoCadre : Monster
             timer = 0;
         }
 
+        if (hp <= 0) MonsterSpawn.isSpawn = true;
+
         death();
     }
 
@@ -64,7 +66,7 @@ public class TwoCadre : Monster
         CharacterController player = GameObject.Find("GameManager").GetComponent<CharacterController>();
         player.player2Hp -= 2;
         print("공격");
-        yield return new WaitForSeconds(1f); // 공속
+        yield return new WaitForSeconds(5f); // 공속
         attacking = false;
     }
 }

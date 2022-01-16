@@ -34,6 +34,7 @@ public class MonsterSpawn : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForFixedUpdate();
             if (isSpawn)
             {
                 yield return new WaitForSeconds(15f);
@@ -53,8 +54,10 @@ public class MonsterSpawn : MonoBehaviour
                         GO.transform.position = space[2].transform.position;
                         break;
                 }
+
+
             }
-            
+
         }
     }
 }

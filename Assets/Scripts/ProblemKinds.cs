@@ -33,10 +33,12 @@ public class ProblemKinds : MonoBehaviour
     bool istrue = true;
 
     public static int FailStac = 0;
+    public static int stack;
     void Start()
     {
         isNonsense = true;
         Question();
+        stack = 0;
     }
 
     void Update()
@@ -45,6 +47,7 @@ public class ProblemKinds : MonoBehaviour
 
     void Question()
     {
+        stack++;
         if (isNonsense == true)
         {
             RandomProblem = Random.Range(1, 4);
