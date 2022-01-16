@@ -123,6 +123,7 @@ public class ProblemKinds : MonoBehaviour
                 Debug.Log("정답");
                 isCommonsense = true;
                 istrue = false;
+                StartCoroutine(StopCount());
             }
 
             else if (collision.tag == "Answer2" && isAnswer2 == true)
@@ -131,6 +132,7 @@ public class ProblemKinds : MonoBehaviour
                 Debug.Log("정답");
                 isCommonsense = true;
                 istrue = false;
+                StartCoroutine(StopCount());
             }
 
             else if (collision.tag == "Answer3" && isAnswer3 == true)
@@ -139,6 +141,7 @@ public class ProblemKinds : MonoBehaviour
                 Debug.Log("정답");
                 isCommonsense = true;
                 istrue = false;
+                StartCoroutine(StopCount());
             }
 
             else if (collision.tag == "Answer4" && isAnswer4 == true)
@@ -147,25 +150,22 @@ public class ProblemKinds : MonoBehaviour
                 Debug.Log("정답");
                 isCommonsense = true;
                 istrue = false;
+                StartCoroutine(StopCount());
             }
             else
             {
-                Debug.Log("실패");
                 isAnswer1 = false;
                 isAnswer2 = false;
                 isAnswer3 = false;
                 isAnswer4 = false;
                 FailStac++;
-                Question();
             }
-
-            StartCoroutine(StopCount());
         }
     }
 
     IEnumerator StopCount()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         isAnswer1 = false;
         isAnswer2 = false;
         isAnswer3 = false;
